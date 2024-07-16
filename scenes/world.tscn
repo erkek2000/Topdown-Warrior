@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://3ukguo80w0yw"]
+[gd_scene load_steps=10 format=3 uid="uid://3ukguo80w0yw"]
 
 [ext_resource type="PackedScene" uid="uid://cftf8v4mhbon" path="res://scenes/player.tscn" id="1_qn18k"]
 [ext_resource type="Texture2D" uid="uid://cs7i5syyqlh01" path="res://art/tilesets/grass.png" id="2_mvnco"]
 [ext_resource type="Texture2D" uid="uid://c7h1n1t1o1ltm" path="res://art/tilesets/plains.png" id="3_oj0um"]
 [ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="4_86s05"]
+[ext_resource type="PackedScene" uid="uid://dctlv8w7eobu8" path="res://scenes/slime_enemy.tscn" id="5_fjvvw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v87co"]
 texture = ExtResource("2_mvnco")
@@ -205,7 +206,9 @@ sources/2 = SubResource("TileSetAtlasSource_mf58u")
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="World Objects" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="World Objects"]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_l5bsu")
 format = 2
@@ -217,9 +220,16 @@ layer_2/name = "Object Layer"
 layer_2/y_sort_enabled = true
 layer_2/tile_data = PackedInt32Array(1245191, 2, 1, 1179654, 2, 1, 1376266, 2, 1, 1245195, 2, 1, 1114121, 2, 1, 1048580, 2, 1, 1376257, 2, 1, 458790, 2, 1, 262180, 2, 1, 393251, 2, 1, 393246, 2, 1, 131104, 2, 1, 131100, 2, 1, 983047, 2, 5, 458779, 2, 5, 1048589, 2, 5, 1245201, 2, 5, 917506, 2, 5, 196631, 2, 5, 655395, 2, 5, 1376269, 524290, 6, 983058, 524290, 6, 1245205, 524290, 6, 851983, 524290, 6, 917514, 524290, 6, 655361, 524290, 6, 131088, 524290, 6, 65549, 524290, 6, 131091, 524290, 6, 524320, 524290, 6, 655390, 524290, 6, 1376279, 524290, 6, 1179671, 524290, 6, 1310746, 524290, 6, 262157, 524290, 6, 131079, 393218, 7, 131082, 393218, 7, 393226, 393218, 7, 851989, 393218, 7, 786438, 393218, 7, 1114140, 393218, 7, 1310750, 655362, 7, 1376287, 655362, 7, 1310754, 655362, 7, 1179681, 655362, 7, 1048609, 2, 0, 1048612, 327682, 0, 1048613, 327682, 0, 1114149, 327682, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_qn18k")]
+[node name="Mobs" type="Node" parent="World Objects"]
+
+[node name="SlimeEnemy" parent="World Objects/Mobs" instance=ExtResource("5_fjvvw")]
+position = Vector2(215, 134)
+
+[node name="Player" parent="World Objects" instance=ExtResource("1_qn18k")]
 position = Vector2(12, 18)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="World Objects/Player"]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="Node2" type="Node" parent="."]
