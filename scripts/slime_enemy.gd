@@ -1,11 +1,25 @@
 extends CharacterBody2D
 
-var SPEED = 50
-var is_chasing = false
+# Movement properties
+var SPEED : int = 50
+var is_chasing : bool = false
 var chase_target = null
 var target_position = null
+var inside_damaging_area = []
+
+# Want to make a superclass that has these properties. They are shared with enemies.
+# Combat properties
+var health : int = 50
+var strength : int = 3
+var is_vulnerable : bool = true
+var invul_time: float = 1
 
 func _physics_process(delta):
+	
+	while not inside_damaging_area.is_empty():
+		inside_damaging_area[0].hurt(strength, position)
+		await get_tree().create_timer(delta).timeout
+	
 	if is_chasing:
 		velocity = position.direction_to(chase_target.position) * SPEED
 		move_and_slide()
@@ -28,3 +42,12 @@ func _on_enemy_detection_area_body_exited(body):
 	if body.name == "Player":
 		is_chasing = false
 		chase_target = null
+
+
+func _on_damaging_area_body_entered(body):
+	if body.name == "Player":
+		inside_damaging_area.append(body)
+			
+func _on_damaging_area_body_exited(body):
+	if inside_damaging_area.has(body):
+			inside_damaging_area.erase(body)

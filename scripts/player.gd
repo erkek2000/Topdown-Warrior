@@ -1,9 +1,43 @@
 extends CharacterBody2D
 
-const SPEED = 150
+# Movement properties
+const SPEED : int = 150
 var direction = "none"
-var is_moving = false
+var is_moving : bool = false
+var movable : bool = true
 
+# Want to make a superclass that has these properties. They are shared with enemies.
+# Combat properties
+var health : int = 10
+var strength : int = 10
+var is_vulnerable : bool = true
+# Always 0.1 invul_time from knockback
+var invul_time: float = 1.4
+
+func hurt(damage_strength : int, damage_pos):
+	if health < 0:
+		movable = false
+		die()
+	elif is_vulnerable:
+		is_vulnerable = false
+		health -= damage_strength * 1.5
+		movable = false
+		# Calculate knockback
+		velocity = damage_pos.direction_to(position) * SPEED * ((strength - damage_strength) / 2)
+		await get_tree().create_timer(0.1).timeout
+		velocity.x = 0
+		velocity.y = 0
+		movable = true
+		print ("OUCH! New HP: ", health )
+		await get_tree().create_timer(invul_time).timeout
+		is_vulnerable = true
+		
+func die():
+	play_anim()
+	await get_tree().create_timer(1).timeout
+	
+
+# Animation on load
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
@@ -11,44 +45,48 @@ func _ready():
 func _physics_process(delta):
 	player_movement(delta)
 
+# Handle movement
 func player_movement(delta):
+	if movable:
+		if Input.is_action_pressed("Move Right"):
+			direction = "right"
+			is_moving = true
+			play_anim()
+			velocity.x = SPEED
+			velocity.y = 0
+		elif Input.is_action_pressed("Move Left"):
+			direction = "left"
+			is_moving = true
+			play_anim()
+			velocity.x = -SPEED
+			velocity.y = 0
+		elif Input.is_action_pressed("Move Up"):
+			direction = "up"
+			is_moving = true
+			play_anim()
+			velocity.y = -SPEED
+			velocity.x = 0
+		elif Input.is_action_pressed("Move Down"):
+			direction = "down"
+			is_moving = true
+			play_anim()
+			velocity.y = SPEED
+			velocity.x = 0
+		else:
+			play_anim()
+			is_moving = false
+			velocity.x = 0
+			velocity.y = 0
 	
-	if Input.is_action_pressed("Move Right"):
-		direction = "right"
-		is_moving = true
-		play_anim()
-		velocity.x = SPEED
-		velocity.y = 0
-	elif Input.is_action_pressed("Move Left"):
-		direction = "left"
-		is_moving = true
-		play_anim()
-		velocity.x = -SPEED
-		velocity.y = 0
-	elif Input.is_action_pressed("Move Up"):
-		direction = "up"
-		is_moving = true
-		play_anim()
-		velocity.y = -SPEED
-		velocity.x = 0
-	elif Input.is_action_pressed("Move Down"):
-		direction = "down"
-		is_moving = true
-		play_anim()
-		velocity.y = SPEED
-		velocity.x = 0
-	else:
-		play_anim()
-		is_moving = false
-		velocity.x = 0
-		velocity.y = 0
-	
+	# Absolutely necessary built in function for movement.
 	move_and_slide()
 	
-
+# Handle animations
 func play_anim():
 	var anim = $AnimatedSprite2D
-	
+	if health < 0:
+		anim.play("death")
+		
 	if direction == "right":
 		anim.flip_h = false
 		if is_moving:
@@ -74,9 +112,8 @@ func play_anim():
 		elif not is_moving:
 			anim.play("back_idle")
 		
+'''
 
-
-"""
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -102,5 +139,5 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-"""
 
+'''
