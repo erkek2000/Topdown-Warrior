@@ -1,17 +1,26 @@
 extends CharacterBody2D
 
-var SPEED = 30
+var SPEED = 50
 var is_chasing = false
 var chase_target = null
 var target_position = null
 
 func _physics_process(delta):
 	if is_chasing:
-		target_position += (chase_target.position - position) / SPEED
-
+		velocity = position.direction_to(chase_target.position) * SPEED
+		move_and_slide()
+		
+		if (chase_target.position.x - position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+			
+		$AnimatedSprite2D.play("side_move")
+	else:
+		$AnimatedSprite2D.play("front_idle")
 
 func _on_enemy_detection_area_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player":	
 		is_chasing = true
 		chase_target = body
 
