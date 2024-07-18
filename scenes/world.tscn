@@ -223,10 +223,10 @@ layer_2/tile_data = PackedInt32Array(1245191, 2, 1, 1179654, 2, 1, 1376266, 2, 1
 [node name="Mobs" type="Node" parent="World Objects"]
 
 [node name="SlimeEnemy" parent="World Objects/Mobs" instance=ExtResource("5_fjvvw")]
-position = Vector2(215, 134)
+position = Vector2(467, 239)
 
 [node name="Player" parent="World Objects" instance=ExtResource("1_qn18k")]
-position = Vector2(12, 18)
+position = Vector2(268, 170)
 
 [node name="Camera2D" type="Camera2D" parent="World Objects/Player"]
 zoom = Vector2(2, 2)
