@@ -1,18 +1,21 @@
-extends CharacterBody2D
+extends Combatant
 
-# Movement properties
-var SPEED : int = 50
+
 var is_chasing : bool = false
 var chase_target = null
 var target_position = null
 var inside_damaging_area = []
 
-# Want to make a superclass that has these properties. They are shared with enemies.
-# Combat properties
-var health : int = 50
-var strength : int = 3
-var is_vulnerable : bool = true
-var invul_time: float = 1
+
+func _ready():
+	# Movement properties
+	SPEED = 50
+	# Combat properties
+	health = 50
+	strength = 3
+	is_vulnerable = true
+	invul_time = 1
+
 
 func _physics_process(delta):
 	

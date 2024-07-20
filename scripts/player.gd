@@ -1,18 +1,8 @@
-extends CharacterBody2D
+extends Combatant
 
-# Movement properties
-const SPEED : int = 150
+
 var direction = "none"
-var is_moving : bool = false
-var movable : bool = true
 
-# Want to make a superclass that has these properties. They are shared with enemies.
-# Combat properties
-var health : int = 10
-var strength : int = 10
-var is_vulnerable : bool = true
-# Always 0.1 invul_time from knockback
-var invul_time: float = 1.4
 
 func hurt(damage_strength : int, damage_pos):
 	if health < 0:
@@ -39,7 +29,18 @@ func die():
 
 # Animation on load
 func _ready():
+	# Movement properties
+	SPEED = 150
+	is_moving = false
+	movable = true
 	$AnimatedSprite2D.play("front_idle")
+	
+	# Combat properties
+	health = 10
+	strength= 10
+	is_vulnerable = true
+	# Always 0.1 invul_time from knockback
+	invul_time= 1.4
 
 
 func _physics_process(delta):
