@@ -1,7 +1,12 @@
 extends Combatant
+@onready var game_manager = %"Game Manager"
 
 
 var direction = "none"
+
+
+fun attack():
+
 
 
 func hurt(damage_strength : int, damage_pos):
@@ -23,9 +28,11 @@ func hurt(damage_strength : int, damage_pos):
 		is_vulnerable = true
 		
 func die():
+	Engine.time_scale = 0.5
 	play_anim()
-	await get_tree().create_timer(1).timeout
-	
+	await get_tree().create_timer(0.6).timeout
+	Engine.time_scale = 1
+	game_manager.respawn()
 
 # Animation on load
 func _ready():
@@ -88,7 +95,7 @@ func play_anim():
 	if health < 0:
 		anim.play("death")
 		
-	if direction == "right":
+	elif direction == "right":
 		anim.flip_h = false
 		if is_moving:
 			anim.play("side_run")
