@@ -5,8 +5,8 @@ extends Combatant
 var direction = "none"
 
 
-fun attack():
-
+func attack():
+	pass
 
 
 func hurt(damage_strength : int, damage_pos):
