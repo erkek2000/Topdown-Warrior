@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ymhalkw788vl"]
+
+[ext_resource type="Script" path="res://scripts/tree.gd" id="1_3mkxm"]
+[ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_72pmw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twngm"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74afx"]
+radius = 19.0
+height = 58.0
+
+[node name="Tree" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_3mkxm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_72pmw")
+offset = Vector2(0, -20)
+region_enabled = true
+region_rect = Rect2(0.760361, 80.4308, 45.2946, 62.7888)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_twngm")
+
+[node name="TransparencyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransparencyArea"]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_74afx")
+
+[connection signal="body_entered" from="TransparencyArea" to="." method="_on_transparency_area_body_entered"]
+[connection signal="body_exited" from="TransparencyArea" to="." method="_on_transparency_area_body_exited"]

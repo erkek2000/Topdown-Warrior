@@ -437,6 +437,7 @@ frame_progress = 0.892219
 offset = Vector2(0, -8)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 scale = Vector2(0.3, 0.3)
 range_item_cull_mask = 2
 texture = ExtResource("3_6sftg")
