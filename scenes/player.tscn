@@ -1,7 +1,8 @@
-[gd_scene load_steps=56 format=3 uid="uid://cftf8v4mhbon"]
+[gd_scene load_steps=57 format=3 uid="uid://cftf8v4mhbon"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_02fgy"]
 [ext_resource type="Texture2D" uid="uid://cey0trdni66g6" path="res://art/characters/player.png" id="1_11omw"]
+[ext_resource type="Texture2D" uid="uid://cuxb2w7l2he8e" path="res://art/2d_lights_and_shadows_neutral_point_light.png" id="3_6sftg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skxlx"]
 size = Vector2(9, 5)
@@ -434,3 +435,9 @@ animation = &"front_idle"
 autoplay = "front_idle"
 frame_progress = 0.892219
 offset = Vector2(0, -8)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.3, 0.3)
+range_item_cull_mask = 2
+texture = ExtResource("3_6sftg")
+offset = Vector2(0, -24)
