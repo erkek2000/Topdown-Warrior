@@ -1,0 +1,171 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmw6feooet17p"]
+
+[ext_resource type="Texture2D" uid="uid://uwnl1bgrurt5" path="res://art/characters/PlayerDraz.png" id="1_iew1w"]
+
+[sub_resource type="Animation" id="Animation_fwgdo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/LegL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/LegL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/LegR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso/LegR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_io1up"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/LegL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, 6), Vector2(-5, 11), Vector2(-7, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/LegL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.14159, 3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/LegR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, -5), Vector2(-6, 0.999999), Vector2(-8, -5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso/LegR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.14159, 3.14159, 3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_yht3s"]
+resource_name = "jump"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xs1h"]
+_data = {
+"RESET": SubResource("Animation_fwgdo"),
+"Run or Jump": SubResource("Animation_io1up"),
+"jump": SubResource("Animation_yht3s")
+}
+
+[node name="ReusableSkeleton2" type="Skeleton2D"]
+
+[node name="Torso" type="Bone2D" parent="."]
+position = Vector2(1, -14)
+rotation = -1.5708
+rest = Transform2D(-4.37114e-08, -1, 1, -4.37114e-08, 1, -14)
+
+[node name="Head" type="Bone2D" parent="Torso"]
+position = Vector2(17, 7.43094e-07)
+rest = Transform2D(1, 0, 0, 1, 17, 7.43094e-07)
+auto_calculate_length_and_angle = false
+length = 20.0
+bone_angle = 0.0
+
+[node name="LegR" type="Bone2D" parent="Torso"]
+position = Vector2(-8, -5)
+rotation = 3.14159
+rest = Transform2D(-1, 8.74228e-08, -8.74228e-08, -1, -8, -5)
+auto_calculate_length_and_angle = false
+length = 6.0
+bone_angle = 0.0
+
+[node name="LegL" type="Bone2D" parent="Torso"]
+position = Vector2(-8, 6)
+rotation = 3.14159
+rest = Transform2D(-1, 8.74228e-08, -8.74228e-08, -1, -8, 6)
+auto_calculate_length_and_angle = false
+length = 6.0
+bone_angle = 0.0
+
+[node name="ArmL" type="Bone2D" parent="Torso"]
+position = Vector2(15, 9)
+rest = Transform2D(1, 0, 0, 1, 15, 9)
+auto_calculate_length_and_angle = false
+length = 15.0
+bone_angle = 180.0
+
+[node name="ArmR" type="Bone2D" parent="Torso"]
+position = Vector2(15, -10)
+rest = Transform2D(1, 0, 0, 1, 15, -10)
+auto_calculate_length_and_angle = false
+length = 15.0
+bone_angle = 180.0
+
+[node name="PlayerDraz" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -27)
+texture = ExtResource("1_iew1w")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3xs1h")
+}
