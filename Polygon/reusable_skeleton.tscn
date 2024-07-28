@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccer70dtgaiqd"]
+
+[ext_resource type="Texture2D" uid="uid://uwnl1bgrurt5" path="res://art/characters/PlayerDraz.png" id="1_pm0tf"]
+
+[node name="ReusableSkeleton" type="Node2D"]
+
+[node name="PlayerDraz" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+texture = ExtResource("1_pm0tf")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(1, -11)
+rotation = -1.5708
+rest = Transform2D(-4.37114e-08, -1, 1, -4.37114e-08, 1, -11)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Bone2D"]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(18, 7.58967e-07)
+rest = Transform2D(1, 0, 0, 1, 18, 7.58967e-07)
+auto_calculate_length_and_angle = false
+length = 23.0
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Bone2D/Bone2D"]
+
+[node name="Bone2D2" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(-6, 5)
+rotation = 2.87979
+rest = Transform2D(-0.965926, 0.258819, -0.258819, -0.965926, -6, 5)
+auto_calculate_length_and_angle = false
+length = 4.2
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Bone2D/Bone2D2"]
+
+[node name="Bone2D3" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(-7, -5)
+rotation = -2.87979
+rest = Transform2D(-0.965926, -0.258819, 0.258819, -0.965926, -7, -5)
+auto_calculate_length_and_angle = false
+length = 4.2
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Bone2D/Bone2D3"]
+
+[node name="Bone2D4" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(18, -8)
+rotation = 3.14159
+rest = Transform2D(-1, 8.74228e-08, -8.74228e-08, -1, 18, -8)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Bone2D/Bone2D4"]
+
+[node name="Bone2D5" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(18, 8)
+rotation = -0.261799
+scale = Vector2(1, 1)
+rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, 18, 8)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Bone2D/Bone2D5"]

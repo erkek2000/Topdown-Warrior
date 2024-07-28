@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcdi8so2tooe1"]
+
+[ext_resource type="Texture2D" uid="uid://uwnl1bgrurt5" path="res://art/characters/PlayerDraz.png" id="1_r2ybj"]
+
+[node name="Character" type="Node2D"]
+
+[node name="Polygons" type="Node2D" parent="."]
+
+[node name="ArmL" type="Polygon2D" parent="Polygons"]
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(8, -30, 8, -25, 9, -25, 9, -13, 11, -13, 11, -14, 12, -14, 12, -27, 11, -27, 11, -29, 10, -29)
+
+[node name="ArmR" type="Polygon2D" parent="Polygons"]
+polygon = PackedVector2Array(-7, -30, -7, -24, -7, -15, -6, -15, -6, -13, -7, -13, -8, -12, -9, -12, -9, -13, -10, -14, -11, -14, -11, -27, -10, -27, -10, -29, -9, -29, -9, -30)
+
+[node name="LegL" type="Polygon2D" parent="Polygons"]
+polygon = PackedVector2Array(2, -11, 8, -11, 8, -2, 10, -2, 10, 0, 2, 0)
+
+[node name="LegR" type="Polygon2D" parent="Polygons"]
+polygon = PackedVector2Array(0, -11, -6, -11, -6, -2, -8, -2, -8, 0, 0, 0)
+
+[node name="Head" type="Polygon2D" parent="Polygons"]
+polygon = PackedVector2Array(1, -29, -3, -29, -5, -31, -8, -34, -9, -36, -11, -38, -11, -43, -12, -44, -12, -49, -8, -52, -7, -53, -7, -54, 7, -54, 13, -49, 12, -46, 11, -45, 10, -43, 10, -34, 7, -32, 6, -29)
+
+[node name="Torso" type="Polygon2D" parent="Polygons"]
+polygon = PackedVector2Array(-5, -29, 8, -29, 8, -14, 7, -12, -4, -12, -5, -13)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(1, -28)
+rotation = 1.5708
+rest = Transform2D(1.19249e-08, 1, -1, 1.19249e-08, 1, -28)
+
+[node name="Bone2D2" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-3, -11)
+rotation = 1.5708
+rest = Transform2D(-4.37114e-08, 1, -1, -4.37114e-08, -3, -11)
+
+[node name="Bone2D3" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(6, -11)
+rotation = 1.5708
+rest = Transform2D(-4.37114e-08, 1, -1, -4.37114e-08, 6, -11)
+
+[node name="Bone2D4" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-7, -30)
+rotation = 1.5708
+rest = Transform2D(-4.37114e-08, 1, -1, -4.37114e-08, -7, -30)
+
+[node name="Bone2D5" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(11, -29)
+rotation = 1.5708
+rest = Transform2D(-4.37114e-08, 1, -1, -4.37114e-08, 11, -29)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+texture = ExtResource("1_r2ybj")
