@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://3ukguo80w0yw"]
+[gd_scene load_steps=19 format=3 uid="uid://3ukguo80w0yw"]
 
 [ext_resource type="PackedScene" uid="uid://cftf8v4mhbon" path="res://scenes/player.tscn" id="1_qn18k"]
 [ext_resource type="Texture2D" uid="uid://cs7i5syyqlh01" path="res://art/tilesets/grass.png" id="2_mvnco"]
 [ext_resource type="Texture2D" uid="uid://c7h1n1t1o1ltm" path="res://art/tilesets/plains.png" id="3_oj0um"]
 [ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="4_86s05"]
 [ext_resource type="PackedScene" uid="uid://dctlv8w7eobu8" path="res://scenes/slime_enemy.tscn" id="5_fjvvw"]
-[ext_resource type="Script" path="res://scenes/game_manager.gd" id="6_uy4ie"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="6_uy4ie"]
 [ext_resource type="PackedScene" uid="uid://ymhalkw788vl" path="res://scenes/tree.tscn" id="7_3jed7"]
+[ext_resource type="PackedScene" uid="uid://bu4ulpyn1q3by" path="res://scenes/tree_with_areas.tscn" id="8_cpph4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v87co"]
 texture = ExtResource("2_mvnco")
@@ -585,7 +586,7 @@ position = Vector2(263, 133)
 position = Vector2(348, 88)
 
 [node name="Tree5" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
-position = Vector2(44, 222)
+position = Vector2(52, 249)
 
 [node name="Tree6" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
 position = Vector2(437, 198)
@@ -653,10 +654,10 @@ position = Vector2(785, 192)
 [node name="Node" type="Node" parent="."]
 
 [node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -11.0
-offset_top = 69.0
-offset_right = 90.0
-offset_bottom = 104.0
+offset_left = -2.0
+offset_top = 64.0
+offset_right = 74.0
+offset_bottom = 99.0
 theme_override_fonts/font = SubResource("SystemFont_bv0pg")
 theme_override_font_sizes/font_size = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_3gowl")
@@ -664,12 +665,26 @@ text = "Tree Object"
 editable = false
 
 [node name="TextEdit2" type="TextEdit" parent="."]
-offset_left = 84.0
-offset_top = 56.0
-offset_right = 161.0
-offset_bottom = 91.0
+offset_left = 79.0
+offset_top = 65.0
+offset_right = 133.0
+offset_bottom = 100.0
 theme_override_fonts/font = SubResource("SystemFont_bv0pg")
 theme_override_font_sizes/font_size = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_3gowl")
 text = "TileMap"
 editable = false
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+offset_left = 13.0
+offset_top = 158.0
+offset_right = 77.0
+offset_bottom = 193.0
+theme_override_fonts/font = SubResource("SystemFont_bv0pg")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3gowl")
+text = "fade area"
+editable = false
+
+[node name="TreeWithAreas" parent="." instance=ExtResource("8_cpph4")]
+position = Vector2(43, 154)
