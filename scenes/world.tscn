@@ -550,6 +550,7 @@ script = SubResource("GDScript_703cr")
 
 [node name="Player" parent="World Objects" instance=ExtResource("1_qn18k")]
 position = Vector2(141, 62)
+SPEED = 150
 
 [node name="Camera2D" type="Camera2D" parent="World Objects/Player"]
 zoom = Vector2(2.5, 2.5)

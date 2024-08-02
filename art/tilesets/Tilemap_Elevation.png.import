@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyoh3ehmqdsee"
-path="res://.godot/imported/water3.png-e6824489e7a2ade43df6ed52e4c9a755.ctex"
+uid="uid://e4s1f5cn5myl"
+path="res://.godot/imported/Tilemap_Elevation.png-64887990349140cc393fb593898a95b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tilesets/water3.png"
-dest_files=["res://.godot/imported/water3.png-e6824489e7a2ade43df6ed52e4c9a755.ctex"]
+source_file="res://art/tilesets/Tilemap_Elevation.png"
+dest_files=["res://.godot/imported/Tilemap_Elevation.png-64887990349140cc393fb593898a95b9.ctex"]
 
 [params]
 

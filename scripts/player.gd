@@ -37,7 +37,7 @@ func die():
 # Animation on load
 func _ready():
 	# Movement properties
-	SPEED = 150
+	#SPEED = 150
 	is_moving = false
 	movable = true
 	$AnimatedSprite2D.play("front_idle")
