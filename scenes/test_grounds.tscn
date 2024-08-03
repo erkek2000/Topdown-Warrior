@@ -1,23 +1,23 @@
 [gd_scene load_steps=19 format=3 uid="uid://3ukguo80w0yw"]
 
-[ext_resource type="PackedScene" uid="uid://cftf8v4mhbon" path="res://scenes/player.tscn" id="1_qn18k"]
-[ext_resource type="Texture2D" uid="uid://cs7i5syyqlh01" path="res://art/tilesets/grass.png" id="2_mvnco"]
-[ext_resource type="Texture2D" uid="uid://c7h1n1t1o1ltm" path="res://art/tilesets/plains.png" id="3_oj0um"]
-[ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="4_86s05"]
-[ext_resource type="PackedScene" uid="uid://dctlv8w7eobu8" path="res://scenes/slime_enemy.tscn" id="5_fjvvw"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="6_uy4ie"]
-[ext_resource type="PackedScene" uid="uid://ymhalkw788vl" path="res://scenes/tree.tscn" id="7_3jed7"]
-[ext_resource type="PackedScene" uid="uid://bu4ulpyn1q3by" path="res://scenes/tree_with_areas.tscn" id="8_cpph4"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_7pbun"]
+[ext_resource type="Texture2D" uid="uid://cs7i5syyqlh01" path="res://art/tilesets/grass.png" id="2_ei443"]
+[ext_resource type="Texture2D" uid="uid://c7h1n1t1o1ltm" path="res://art/tilesets/plains.png" id="3_cnuim"]
+[ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="4_y645j"]
+[ext_resource type="PackedScene" uid="uid://cftf8v4mhbon" path="res://scenes/player.tscn" id="5_xtcw0"]
+[ext_resource type="PackedScene" uid="uid://dctlv8w7eobu8" path="res://scenes/slime_enemy.tscn" id="6_m3w3e"]
+[ext_resource type="PackedScene" uid="uid://bu4ulpyn1q3by" path="res://scenes/tree_with_areas.tscn" id="7_vsg0e"]
+[ext_resource type="PackedScene" uid="uid://ymhalkw788vl" path="res://scenes/tree.tscn" id="8_y6je1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v87co"]
-texture = ExtResource("2_mvnco")
+texture = ExtResource("2_ei443")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqwln"]
-texture = ExtResource("3_oj0um")
+texture = ExtResource("3_cnuim")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -398,7 +398,7 @@ texture = ExtResource("3_oj0um")
 3:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mf58u"]
-texture = ExtResource("4_86s05")
+texture = ExtResource("4_y645j")
 0:5/size_in_atlas = Vector2i(3, 4)
 0:5/0 = 0
 0:5/0/y_sort_origin = 9
@@ -461,13 +461,13 @@ sources/2 = SubResource("TileSetAtlasSource_mf58u")
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_824r0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lm4th"]
-texture = ExtResource("4_86s05")
+texture = ExtResource("4_y645j")
 0:5/size_in_atlas = Vector2i(3, 4)
 0:5/0 = 0
 0:5/0/y_sort_origin = 10
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:5/0/physics_layer_0/angular_velocity = 0.0
-0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-11.5, 15.5, -2.5, 11, 7.5, 12, 11.5, 20, 5.5, 27, -8, 27, -11.5, 22)
 6:7/size_in_atlas = Vector2i(2, 2)
 6:7/0 = 0
 6:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -515,12 +515,12 @@ msdf_size = 20
 bg_color = Color(1, 1, 1, 0)
 corner_detail = 1
 
-[node name="World" type="Node2D"]
+[node name="TestGrounds" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Game Manager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("6_uy4ie")
+script = ExtResource("1_7pbun")
 
 [node name="World Objects" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -548,7 +548,7 @@ layer_0/y_sort_enabled = true
 layer_0/tile_data = PackedInt32Array(131078, 1, 5)
 script = SubResource("GDScript_703cr")
 
-[node name="Player" parent="World Objects" instance=ExtResource("1_qn18k")]
+[node name="Player" parent="World Objects" instance=ExtResource("5_xtcw0")]
 position = Vector2(141, 62)
 SPEED = 150
 
@@ -563,96 +563,96 @@ position_smoothing_enabled = true
 [node name="Mobs" type="Node2D" parent="World Objects"]
 y_sort_enabled = true
 
-[node name="SlimeEnemy" parent="World Objects/Mobs" instance=ExtResource("5_fjvvw")]
+[node name="SlimeEnemy" parent="World Objects/Mobs" instance=ExtResource("6_m3w3e")]
 position = Vector2(399, 230)
 
-[node name="SlimeEnemy2" parent="World Objects/Mobs" instance=ExtResource("5_fjvvw")]
+[node name="SlimeEnemy2" parent="World Objects/Mobs" instance=ExtResource("6_m3w3e")]
 position = Vector2(399, 164)
 
-[node name="SlimeEnemy3" parent="World Objects/Mobs" instance=ExtResource("5_fjvvw")]
+[node name="SlimeEnemy3" parent="World Objects/Mobs" instance=ExtResource("6_m3w3e")]
 position = Vector2(336, 288)
 
 [node name="Trees" type="Node2D" parent="World Objects"]
 
-[node name="TreeWithAreas" parent="World Objects/Trees" instance=ExtResource("8_cpph4")]
+[node name="TreeWithAreas" parent="World Objects/Trees" instance=ExtResource("7_vsg0e")]
 position = Vector2(43, 154)
 
-[node name="Tree" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(39, 61)
 
-[node name="Tree2" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree2" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(202, 62)
 
-[node name="Tree3" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree3" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(263, 133)
 
-[node name="Tree4" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree4" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(348, 88)
 
-[node name="Tree5" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree5" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(52, 249)
 
-[node name="Tree6" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree6" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(437, 198)
 
-[node name="Tree7" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree7" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(504, 170)
 
-[node name="Tree8" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree8" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(453, 266)
 
-[node name="Tree9" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree9" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(278, 69)
 
-[node name="Tree10" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree10" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(516, 287)
 
-[node name="Tree11" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree11" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(533, 362)
 
-[node name="Tree12" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree12" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(498, 222)
 
-[node name="Tree13" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree13" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(574, 172)
 
-[node name="Tree14" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree14" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(572, 219)
 
-[node name="Tree15" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree15" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(659, 233)
 
-[node name="Tree16" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree16" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(606, 400)
 
-[node name="Tree17" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree17" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(611, 332)
 
-[node name="Tree18" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree18" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(700, 290)
 
-[node name="Tree19" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree19" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(683, 360)
 
-[node name="Tree20" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree20" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(680, 421)
 
-[node name="Tree21" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree21" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(820, 302)
 
-[node name="Tree22" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree22" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(450, 46)
 
-[node name="Tree23" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree23" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(497, 71)
 
-[node name="Tree24" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree24" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(600, 85)
 
-[node name="Tree25" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree25" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(681, 122)
 
-[node name="Tree26" parent="World Objects/Trees" instance=ExtResource("7_3jed7")]
+[node name="Tree26" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(785, 192)
 
 [node name="Node" type="Node" parent="."]
