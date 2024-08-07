@@ -12,14 +12,17 @@ radius = 21.0
 height = 54.0
 
 [node name="TreeWithAreas" type="StaticBody2D"]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("1_vslar")
 offset = Vector2(0, -26)
 region_enabled = true
 region_rect = Rect2(0, 81.4534, 46.4404, 62.1232)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_26m1w")

@@ -64,20 +64,25 @@ func generate_world():
 	var ground = []
 	var water = []
 	var cliffs = []
+	var sand = []
 	
 	for x in MAP_SIZE.x:
 		for y in MAP_SIZE.y:
 			var a = noise.get_noise_2d(x, y)
 			if a >= LAND_CAP:
 				ground.append(Vector2(x, y))
-			elif a <= LAND_CAP:
+			elif a >= 0.05:
+				sand.append(Vector2(x, y))
+			elif a <= 0.05:
 				tile_map.set_cell(0, Vector2(x, y), 8, Vector2(0, 0), 0 )
 				#water.append(Vector2(x, y))
 				#tile_map.set_cell(0, Vector2(x, y), 8, Vector2(0,0), 0)
 			if a > 0.3:
 				cliffs.append(Vector2(x, y))
 	#Using terrain connect is better since it connects like autotile.
+	
 	tile_map.set_cells_terrain_connect(0, ground, 0, 0)
+	tile_map.set_cells_terrain_connect(0, sand, 1, 0)
 	tile_map.set_cells_terrain_connect(0, water, 2, 0)
 	tile_map.set_cells_terrain_connect(1, cliffs, 3, 0)
 
