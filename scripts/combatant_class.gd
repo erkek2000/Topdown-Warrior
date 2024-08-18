@@ -14,5 +14,3 @@ extends CharacterBody2D
 @export var is_vulnerable : bool
 # Always 0.1 invul_time from knockback
 @export var invul_time: float
-
-

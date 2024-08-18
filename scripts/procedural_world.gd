@@ -1,4 +1,60 @@
-extends Node2D  # or any other node type you prefer
+extends Node2D
+
+@onready var tile_map = $TileMap
+@export var tree_scene: PackedScene  # Exported variable to hold the tree scene
+var tree_scene_preloaded = preload("res://scenes/object_scenes/tree_with_areas.tscn")
+@onready var player = $Player
+
+
+const MAP_SIZE = Vector2(128, 128)
+const LAND_CAP = 0.1
+const TILE_SIZE = 64
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	player.global_position = MAP_SIZE * TILE_SIZE / 2
+	await get_tree().create_timer(5).timeout
+	generate_world()
+
+func generate_world():
+	var noise = FastNoiseLite.new()
+	var tree_noise_generator = FastNoiseLite.new()
+	noise.seed = randi()
+	tree_noise_generator = randi()
+	var ground = []
+	var water = []
+	var cliffs = []
+	var sand = []
+	
+	for x in MAP_SIZE.x:
+		for y in MAP_SIZE.y:
+			print (x, "   ",  y)
+			var a = noise.get_noise_2d(x, y)
+			if a >= LAND_CAP:
+				ground.append(Vector2(x, y))
+			elif a >= 0.05:
+				sand.append(Vector2(x, y))
+			elif a <= 0.05:
+				tile_map.set_cell(0, Vector2(x, y), 8, Vector2(0, 0), 0 )
+				#water.append(Vector2(x, y))
+				#tile_map.set_cell(0, Vector2(x, y), 8, Vector2(0,0), 0)
+			if a > 0.3:
+				cliffs.append(Vector2(x, y))
+	#Using terrain connect is better since it connects like autotile.
+	
+	tile_map.set_cells_terrain_connect(0, ground, 0, 0)
+	tile_map.set_cells_terrain_connect(0, sand, 1, 0)
+	tile_map.set_cells_terrain_connect(0, water, 2, 0)
+	tile_map.set_cells_terrain_connect(1, cliffs, 3, 0)
+	
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+	
+	
+	
 """
 #@onready var noise_generator = $NoiseGenerator  # Adjust the path to your NestedNoiseGenerator node
 @onready var noise_generator = $NestedNoiseGenerator
@@ -48,45 +104,14 @@ func generate_terrain():
 			#tile_map.set_cellv(Vector2(x, height / tile_size), tile_type)
 			
 """
-@onready var tile_map = $TileMap
-
-const MAP_SIZE = Vector2(128, 128)
-const LAND_CAP = 0.1
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	generate_world()
-
-func generate_world():
-	var noise = FastNoiseLite.new()
-	noise.seed = randi()
-	var ground = []
-	var water = []
-	var cliffs = []
-	var sand = []
-	
-	for x in MAP_SIZE.x:
-		for y in MAP_SIZE.y:
-			var a = noise.get_noise_2d(x, y)
-			if a >= LAND_CAP:
-				ground.append(Vector2(x, y))
-			elif a >= 0.05:
-				sand.append(Vector2(x, y))
-			elif a <= 0.05:
-				tile_map.set_cell(0, Vector2(x, y), 8, Vector2(0, 0), 0 )
-				#water.append(Vector2(x, y))
-				#tile_map.set_cell(0, Vector2(x, y), 8, Vector2(0,0), 0)
-			if a > 0.3:
-				cliffs.append(Vector2(x, y))
-	#Using terrain connect is better since it connects like autotile.
-	
-	tile_map.set_cells_terrain_connect(0, ground, 0, 0)
-	tile_map.set_cells_terrain_connect(0, sand, 1, 0)
-	tile_map.set_cells_terrain_connect(0, water, 2, 0)
-	tile_map.set_cells_terrain_connect(1, cliffs, 3, 0)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+'''
+	for x in range(0, MAP_SIZE.x, 5):
+		for y in range(0, MAP_SIZE.y, 5):
+			# Determine tree placement based on tree noise
+			
+			var tree_value = tree_noise_generator.get_noise_2d(x, y)  # Scale for tree placement
+			if tree_value > 0.2:  # Check if the noise value exceeds the threshold
+				var tree_instance = tree_scene_preloaded.instantiate()  # Create an instance of the tree scene
+				tree_instance.position = Vector2(x, y)  # Position the tree
+				add_child(tree_instance)  # Add the tree to the scene
+'''

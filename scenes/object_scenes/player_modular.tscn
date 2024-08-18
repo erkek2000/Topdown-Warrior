@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c01ke3vumbws5"]
+
+[ext_resource type="Texture2D" uid="uid://cey0trdni66g6" path="res://art/characters/player.png" id="1_7tb7p"]
+[ext_resource type="Script" path="res://scripts/movement.gd" id="2_wxapn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntue7"]
+size = Vector2(11, 6)
+
+[node name="PlayerModular" type="CharacterBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_7tb7p")
+offset = Vector2(0, -20)
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 45.8188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -3)
+shape = SubResource("RectangleShape2D_ntue7")
+
+[node name="Movement" type="Node2D" parent="."]
+script = ExtResource("2_wxapn")

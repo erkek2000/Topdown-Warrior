@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bu4ulpyn1q3by"]
 
-[ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_vslar"]
-[ext_resource type="PackedScene" uid="uid://bi37aptoc00o0" path="res://reusable_classes/fade_area.tscn" id="2_xw6ad"]
+[ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_qw6tq"]
+[ext_resource type="PackedScene" uid="uid://bi37aptoc00o0" path="res://reusable_classes/fade_area.tscn" id="2_pxrdf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26m1w"]
 radius = 8.0
@@ -16,7 +16,7 @@ y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-texture = ExtResource("1_vslar")
+texture = ExtResource("1_qw6tq")
 offset = Vector2(0, -26)
 region_enabled = true
 region_rect = Rect2(0, 81.4534, 46.4404, 62.1232)
@@ -27,7 +27,7 @@ position = Vector2(0, -7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_26m1w")
 
-[node name="FadeArea" parent="." instance=ExtResource("2_xw6ad")]
+[node name="FadeArea" parent="." instance=ExtResource("2_pxrdf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FadeArea"]
 position = Vector2(0, -30)

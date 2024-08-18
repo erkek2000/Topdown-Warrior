@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://v2jniopc0db1"]
+[gd_scene load_steps=12 format=3 uid="uid://v2jniopc0db1"]
 
 [ext_resource type="Script" path="res://scripts/procedural_world.gd" id="1_76j5v"]
 [ext_resource type="Texture2D" uid="uid://58y85nshlopk" path="res://art/tilesets/Tilemap_Flat.png" id="1_g31fp"]
+[ext_resource type="PackedScene" uid="uid://bu4ulpyn1q3by" path="res://scenes/object_scenes/tree_with_areas.tscn" id="2_r531d"]
 [ext_resource type="Texture2D" uid="uid://e4s1f5cn5myl" path="res://art/tilesets/Tilemap_Elevation.png" id="2_sj4q0"]
 [ext_resource type="Texture2D" uid="uid://b44vjsromx08f" path="res://art/tilesets/Water.png" id="2_vs10h"]
-[ext_resource type="PackedScene" uid="uid://cftf8v4mhbon" path="res://scenes/player.tscn" id="4_3fk6o"]
+[ext_resource type="PackedScene" uid="uid://cftf8v4mhbon" path="res://scenes/object_scenes/player.tscn" id="4_3fk6o"]
 [ext_resource type="Script" path="res://scripts/nested_noise_generator.gd" id="6_21f0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_llx7l"]
@@ -836,14 +837,22 @@ sources/0 = SubResource("TileSetAtlasSource_llx7l")
 [node name="ProceduralWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_76j5v")
+tree_scene = ExtResource("2_r531d")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_og8wk")
 format = 2
-layer_0/name = "Ground"
-layer_1/name = "Cliffs"
-layer_1/tile_data = PackedInt32Array()
+
+[node name="Ground" type="TileMapLayer" parent="TileMap"]
+y_sort_enabled = true
+use_parent_material = true
+tile_set = SubResource("TileSet_og8wk")
+
+[node name="Cliffs" type="TileMapLayer" parent="TileMap"]
+y_sort_enabled = true
+use_parent_material = true
+tile_set = SubResource("TileSet_og8wk")
 
 [node name="Player" parent="." instance=ExtResource("4_3fk6o")]
 scale = Vector2(5, 5)
