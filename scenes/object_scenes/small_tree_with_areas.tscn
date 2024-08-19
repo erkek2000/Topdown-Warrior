@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqhqm1ivinwv1"]
+
+[ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_u4xin"]
+[ext_resource type="PackedScene" uid="uid://bi37aptoc00o0" path="res://reusable_classes/fade_area.tscn" id="2_grno3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_al26x"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bxoo"]
+height = 36.0
+
+[node name="SmallTreeWithAreas" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_u4xin")
+offset = Vector2(0, -22)
+region_enabled = true
+region_rect = Rect2(128, 96, 32, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_al26x")
+
+[node name="FadeArea" parent="." instance=ExtResource("2_grno3")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FadeArea"]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_6bxoo")

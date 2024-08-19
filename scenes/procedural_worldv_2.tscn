@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://58y85nshlopk" path="res://art/tilesets/Tilemap_Flat.png" id="1_4qfxp"]
 [ext_resource type="Script" path="res://scripts/procedural_worldv_2.gd" id="1_fv6ok"]
-[ext_resource type="PackedScene" uid="uid://bu4ulpyn1q3by" path="res://scenes/object_scenes/tree_with_areas.tscn" id="2_8xbyt"]
+[ext_resource type="PackedScene" uid="uid://bqhqm1ivinwv1" path="res://scenes/object_scenes/small_tree_with_areas.tscn" id="2_e2q6i"]
 [ext_resource type="Texture2D" uid="uid://e4s1f5cn5myl" path="res://art/tilesets/Tilemap_Elevation.png" id="2_x0w1a"]
 [ext_resource type="Texture2D" uid="uid://b44vjsromx08f" path="res://art/tilesets/Water.png" id="4_ojl0k"]
 [ext_resource type="PackedScene" uid="uid://cftf8v4mhbon" path="res://scenes/object_scenes/player.tscn" id="5_tx0rd"]
@@ -474,7 +474,7 @@ sources/1 = SubResource("TileSetAtlasSource_xne26")
 
 [node name="ProceduralWorldv2" type="Node2D"]
 script = ExtResource("1_fv6ok")
-tree_scene = ExtResource("2_8xbyt")
+tree_scene = ExtResource("2_e2q6i")
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -489,6 +489,8 @@ tile_set = SubResource("TileSet_fa20f")
 tile_set = SubResource("TileSet_p44a7")
 
 [node name="Player" parent="." instance=ExtResource("5_tx0rd")]
+scale = Vector2(5, 5)
+SPEED = 2300
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
