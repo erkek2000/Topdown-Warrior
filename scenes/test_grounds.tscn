@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://3ukguo80w0yw"]
+[gd_scene load_steps=16 format=3 uid="uid://3ukguo80w0yw"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_7pbun"]
 [ext_resource type="Texture2D" uid="uid://cs7i5syyqlh01" path="res://art/tilesets/grass.png" id="2_ei443"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dctlv8w7eobu8" path="res://scenes/object_scenes/slime_enemy.tscn" id="6_m3w3e"]
 [ext_resource type="PackedScene" uid="uid://bu4ulpyn1q3by" path="res://scenes/object_scenes/tree_with_areas.tscn" id="7_vsg0e"]
 [ext_resource type="PackedScene" uid="uid://ymhalkw788vl" path="res://scenes/object_scenes/tree.tscn" id="8_y6je1"]
+[ext_resource type="Texture2D" uid="uid://cuxb2w7l2he8e" path="res://art/2d_lights_and_shadows_neutral_point_light.png" id="9_i0ogf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v87co"]
 texture = ExtResource("2_ei443")
@@ -527,3 +528,22 @@ theme_override_font_sizes/font_size = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_3gowl")
 text = "fade area"
 editable = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.23829, 0.230264, 0.510081, 1)
+
+[node name="Light" type="Node2D" parent="."]
+visible = false
+position = Vector2(195, 78)
+
+[node name="TextureLight" type="PointLight2D" parent="Light"]
+energy = 0.7
+texture = ExtResource("9_i0ogf")
+texture_scale = 1.8
+
+[node name="Shadow" type="PointLight2D" parent="Light"]
+energy = 0.54
+shadow_enabled = true
+texture = ExtResource("9_i0ogf")
+texture_scale = 2.9
