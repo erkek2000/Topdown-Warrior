@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqhqm1ivinwv1"]
+[gd_scene load_steps=6 format=3 uid="uid://bqhqm1ivinwv1"]
 
 [ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_u4xin"]
+[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="2_68i2w"]
 [ext_resource type="PackedScene" uid="uid://bi37aptoc00o0" path="res://reusable_classes/fade_area.tscn" id="2_grno3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_al26x"]
@@ -19,6 +20,9 @@ texture = ExtResource("1_u4xin")
 offset = Vector2(0, -22)
 region_enabled = true
 region_rect = Rect2(128, 96, 32, 48)
+
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
+script = ExtResource("2_68i2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)

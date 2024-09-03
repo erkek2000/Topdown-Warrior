@@ -416,17 +416,17 @@ position = Vector2(336, 288)
 [node name="TreeWithAreas" parent="World Objects/Trees" instance=ExtResource("7_vsg0e")]
 position = Vector2(43, 154)
 
+[node name="TreeWithAreas2" parent="World Objects/Trees" instance=ExtResource("7_vsg0e")]
+position = Vector2(213, 69)
+
+[node name="TreeWithAreas3" parent="World Objects/Trees" instance=ExtResource("7_vsg0e")]
+position = Vector2(311, 63)
+
+[node name="TreeWithAreas4" parent="World Objects/Trees" instance=ExtResource("7_vsg0e")]
+position = Vector2(274, 136)
+
 [node name="Tree" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(39, 61)
-
-[node name="Tree2" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
-position = Vector2(202, 62)
-
-[node name="Tree3" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
-position = Vector2(263, 133)
-
-[node name="Tree4" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
-position = Vector2(348, 88)
 
 [node name="Tree5" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(52, 249)
@@ -439,9 +439,6 @@ position = Vector2(504, 170)
 
 [node name="Tree8" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(453, 266)
-
-[node name="Tree9" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
-position = Vector2(278, 69)
 
 [node name="Tree10" parent="World Objects/Trees" instance=ExtResource("8_y6je1")]
 position = Vector2(516, 287)

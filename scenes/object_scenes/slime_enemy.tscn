@@ -312,7 +312,6 @@ radius = 71.007
 radius = 7.88954
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a0jmt"]
-radius = 10.0
 
 [node name="SlimeEnemy" type="CharacterBody2D"]
 y_sort_enabled = true

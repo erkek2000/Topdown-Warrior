@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu4ulpyn1q3by"]
+[gd_scene load_steps=8 format=3 uid="uid://bu4ulpyn1q3by"]
 
 [ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_qw6tq"]
 [ext_resource type="PackedScene" uid="uid://bi37aptoc00o0" path="res://reusable_classes/fade_area.tscn" id="2_pxrdf"]
+[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="2_tmvao"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26m1w"]
 radius = 8.0
@@ -25,7 +26,12 @@ y_sort_enabled = true
 texture = ExtResource("1_qw6tq")
 offset = Vector2(0, -26)
 region_enabled = true
-region_rect = Rect2(0, 81.4534, 46.4404, 62.1232)
+region_rect = Rect2(0, 80, 48, 63.5766)
+
+[node name="SimpleShadowSprite" type="Sprite2D" parent="Sprite2D"]
+script = ExtResource("2_tmvao")
+shadow_offset = Vector2(0, 0)
+shadow_top_offset = Vector2(50, -100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
