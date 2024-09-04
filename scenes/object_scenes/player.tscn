@@ -1,8 +1,9 @@
-[gd_scene load_steps=58 format=3 uid="uid://cftf8v4mhbon"]
+[gd_scene load_steps=59 format=3 uid="uid://cftf8v4mhbon"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_02fgy"]
 [ext_resource type="Texture2D" uid="uid://cey0trdni66g6" path="res://art/characters/player.png" id="1_11omw"]
 [ext_resource type="Texture2D" uid="uid://cuxb2w7l2he8e" path="res://art/2d_lights_and_shadows_neutral_point_light.png" id="3_6sftg"]
+[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="3_amecb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skxlx"]
 size = Vector2(11, 5)
@@ -431,13 +432,15 @@ shape = SubResource("RectangleShape2D_skxlx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-1.90735e-06, -11)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_yl6tx")
 animation = &"front_idle"
 autoplay = "front_idle"
-frame_progress = 0.892219
-offset = Vector2(0, -8)
+offset = Vector2(0, -17)
+
+[node name="SimpleShadowSprite" type="Sprite2D" parent="AnimatedSprite2D"]
+script = ExtResource("3_amecb")
+shadow_y_stretch = 2.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

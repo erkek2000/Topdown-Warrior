@@ -29,9 +29,9 @@ region_enabled = true
 region_rect = Rect2(0, 80, 48, 63.5766)
 
 [node name="SimpleShadowSprite" type="Sprite2D" parent="Sprite2D"]
+rotation = -4.18879
 script = ExtResource("2_tmvao")
-shadow_offset = Vector2(0, 0)
-shadow_top_offset = Vector2(50, -100)
+shadow_y_stretch = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

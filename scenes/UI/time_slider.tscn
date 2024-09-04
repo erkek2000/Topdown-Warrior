@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c66nvrnf2u0w5"]
+
+[node name="Time Slider" type="HSlider"]
+offset_right = 8.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.01

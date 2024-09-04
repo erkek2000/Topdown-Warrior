@@ -1,7 +1,8 @@
-[gd_scene load_steps=43 format=3 uid="uid://dctlv8w7eobu8"]
+[gd_scene load_steps=44 format=3 uid="uid://dctlv8w7eobu8"]
 
 [ext_resource type="Script" path="res://scripts/slime_enemy.gd" id="1_0isnt"]
 [ext_resource type="Texture2D" uid="uid://ccbx4p77qga6h" path="res://art/characters/slime.png" id="1_vwoxj"]
+[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="3_33551"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ylah"]
 atlas = ExtResource("1_vwoxj")
@@ -324,6 +325,9 @@ sprite_frames = SubResource("SpriteFrames_32kkx")
 animation = &"front_idle"
 autoplay = "front_idle"
 offset = Vector2(0, -8)
+
+[node name="SimpleShadowSprite" type="Sprite2D" parent="AnimatedSprite2D"]
+script = ExtResource("3_33551")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
