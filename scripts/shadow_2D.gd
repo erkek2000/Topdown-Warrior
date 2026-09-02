@@ -1,10 +1,12 @@
-extends Sprite2D  # Change this back to Sprite2D if you want to handle both animated and static sprites
+extends Sprite2D  # Extend AnimatedSprite2D to handle both animated and static sprites
 class_name SimpleShadowSprite
+
+@onready var game_manager = %"Game Manager"
 
 @export var shadow_opacity := 0.5
 @export var shadow_y_stretch := 1.5
 @export var y_sort_offset := 0
-@export var time_of_day := 0.4  # Global time variable (0.0 to 1.0)
+@export var time_of_day := 0.8  # Global time variable (0.0 to 1.0)
 
 func _ready():
 	var parent = get_parent()
@@ -20,8 +22,7 @@ func _ready():
 		# If the parent is an AnimatedSprite2D, set the initial texture
 		update_shadow_texture(parent)
 	
-	# Set modulate with a constant alpha value
-	modulate = Color(0, 0, 0, shadow_opacity)  # Set the shadow color and opacity
+	modulate = Color(0, 0, 0, shadow_opacity)
 	update_scale()
 	
 	# Ensure the parent is set up for Y-sort
@@ -29,6 +30,9 @@ func _ready():
 		push_warning("SimpleShadowSprite: Parent node is not Y-sorted. Consider enabling Y-sort on the parent or its container.")
 
 func _process(_delta):
+	if game_manager:
+		print("he")
+	time_of_day = game_manager.game_time
 	var parent = get_parent()
 	if parent is Node2D:
 		global_position = parent.global_position

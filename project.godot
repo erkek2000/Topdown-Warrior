@@ -13,9 +13,13 @@ config_version=5
 config/name="Topdown Warrior"
 config/tags=PackedStringArray("2d", "prototype")
 run/main_scene="res://scenes/test_grounds.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/show_image=false
 config/icon="res://art/combatant.svg"
+
+[autoload]
+
+GameManager="res://scripts/game_manager.gd"
 
 [display]
 

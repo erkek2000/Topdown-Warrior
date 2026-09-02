@@ -1,9 +1,9 @@
 [gd_scene load_steps=59 format=3 uid="uid://cftf8v4mhbon"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_02fgy"]
+[ext_resource type="Script" uid="uid://5p1w1h7twfh2" path="res://scripts/player.gd" id="1_02fgy"]
 [ext_resource type="Texture2D" uid="uid://cey0trdni66g6" path="res://art/characters/player.png" id="1_11omw"]
 [ext_resource type="Texture2D" uid="uid://cuxb2w7l2he8e" path="res://art/2d_lights_and_shadows_neutral_point_light.png" id="3_6sftg"]
-[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="3_amecb"]
+[ext_resource type="Script" uid="uid://duvknfntyumfg" path="res://scripts/shadow_2D.gd" id="3_amecb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skxlx"]
 size = Vector2(11, 5)
@@ -440,7 +440,7 @@ offset = Vector2(0, -17)
 
 [node name="SimpleShadowSprite" type="Sprite2D" parent="AnimatedSprite2D"]
 script = ExtResource("3_amecb")
-shadow_y_stretch = 2.0
+time_of_day = 0.4
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

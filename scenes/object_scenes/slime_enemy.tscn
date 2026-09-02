@@ -1,8 +1,8 @@
 [gd_scene load_steps=44 format=3 uid="uid://dctlv8w7eobu8"]
 
-[ext_resource type="Script" path="res://scripts/slime_enemy.gd" id="1_0isnt"]
+[ext_resource type="Script" uid="uid://c488nw5ywo6qf" path="res://scripts/slime_enemy.gd" id="1_0isnt"]
 [ext_resource type="Texture2D" uid="uid://ccbx4p77qga6h" path="res://art/characters/slime.png" id="1_vwoxj"]
-[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="3_33551"]
+[ext_resource type="Script" uid="uid://duvknfntyumfg" path="res://scripts/shadow_2D.gd" id="3_33551"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ylah"]
 atlas = ExtResource("1_vwoxj")
@@ -324,30 +324,34 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_32kkx")
 animation = &"front_idle"
 autoplay = "front_idle"
-offset = Vector2(0, -8)
+offset = Vector2(0, -7)
 
 [node name="SimpleShadowSprite" type="Sprite2D" parent="AnimatedSprite2D"]
 script = ExtResource("3_33551")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 y_sort_enabled = true
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ivrfw")
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
 shape = SubResource("CircleShape2D_q4c0q")
 
 [node name="DamagingArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagingArea"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_u1hml")
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

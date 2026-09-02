@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://3ukguo80w0yw"]
 
-[ext_resource type="Script" uid="uid://dorn4s6rwmswm" path="res://scripts/game_manager.gd" id="1_7pbun"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_7pbun"]
 [ext_resource type="PackedScene" uid="uid://c66nvrnf2u0w5" path="res://scenes/UI/time_slider.tscn" id="2_6x7ss"]
 [ext_resource type="Texture2D" uid="uid://cs7i5syyqlh01" path="res://art/tilesets/grass.png" id="2_ei443"]
 [ext_resource type="Texture2D" uid="uid://c7h1n1t1o1ltm" path="res://art/tilesets/plains.png" id="3_cnuim"]
@@ -358,16 +358,16 @@ y_sort_enabled = true
 unique_name_in_owner = true
 script = ExtResource("1_7pbun")
 
-[node name="Time Slider" parent="Game Manager" instance=ExtResource("2_6x7ss")]
+[node name="Time Slider" parent="." instance=ExtResource("2_6x7ss")]
 unique_name_in_owner = true
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 23.0
-offset_top = -306.0
-offset_right = 145.0
-offset_bottom = -290.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 138.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -469,4 +469,4 @@ shadow_enabled = true
 texture = ExtResource("9_i0ogf")
 texture_scale = 2.9
 
-[connection signal="value_changed" from="Game Manager/Time Slider" to="Game Manager" method="_on_time_slider_value_changed"]
+[connection signal="value_changed" from="Time Slider" to="Game Manager" method="_on_time_slider_value_changed"]

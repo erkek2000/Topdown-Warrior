@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bccnpnxv1fa6c"]
 
 [ext_resource type="Texture2D" uid="uid://58y85nshlopk" path="res://art/tilesets/Tilemap_Flat.png" id="1_4qfxp"]
-[ext_resource type="Script" path="res://scripts/procedural_worldv_2.gd" id="1_fv6ok"]
+[ext_resource type="Script" uid="uid://0csroa3nervo" path="res://scripts/procedural_worldv_2.gd" id="1_fv6ok"]
 [ext_resource type="PackedScene" uid="uid://bqhqm1ivinwv1" path="res://scenes/object_scenes/small_tree_with_areas.tscn" id="2_e2q6i"]
 [ext_resource type="Texture2D" uid="uid://e4s1f5cn5myl" path="res://art/tilesets/Tilemap_Elevation.png" id="2_x0w1a"]
 [ext_resource type="Texture2D" uid="uid://b44vjsromx08f" path="res://art/tilesets/Water.png" id="4_ojl0k"]

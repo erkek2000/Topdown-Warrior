@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqhqm1ivinwv1"]
 
 [ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_u4xin"]
-[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="2_68i2w"]
+[ext_resource type="Script" uid="uid://duvknfntyumfg" path="res://scripts/shadow_2D.gd" id="2_68i2w"]
 [ext_resource type="PackedScene" uid="uid://bi37aptoc00o0" path="res://reusable_classes/fade_area.tscn" id="2_grno3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_al26x"]

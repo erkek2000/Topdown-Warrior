@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://co4dysik5ovhf" path="res://art/objects/objects.png" id="1_qw6tq"]
 [ext_resource type="PackedScene" uid="uid://bi37aptoc00o0" path="res://reusable_classes/fade_area.tscn" id="2_pxrdf"]
-[ext_resource type="Script" path="res://scripts/shadow_2D.gd" id="2_tmvao"]
+[ext_resource type="Script" uid="uid://duvknfntyumfg" path="res://scripts/shadow_2D.gd" id="2_tmvao"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26m1w"]
 radius = 8.0
@@ -31,7 +31,6 @@ region_rect = Rect2(0, 80, 48, 63.5766)
 [node name="SimpleShadowSprite" type="Sprite2D" parent="Sprite2D"]
 rotation = -4.18879
 script = ExtResource("2_tmvao")
-shadow_y_stretch = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
